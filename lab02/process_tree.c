@@ -32,19 +32,13 @@ int main(int argc, char const *argv[])
 
 void create_process(int limit, int *qty, pid_t father) {
     if (*qty >= limit) return;
-    pid_t left_child_pid = fork();
-    if (left_child_pid == 0) {
+    pid_t child = fork();
+    if (child == 0) {
         *qty += 1;
-        printf("Processo %d é filho de %d\n", getpid(), father);
+        // printf("Processo %d é filho de %d\n", getpid(), father);
         create_process(limit, qty, getpid());
-    } else {  // Se for o pai tenta criar um outro filho
-        if (*qty >= limit) return;
-        pid_t right_child_pid = fork();
-        if (right_child_pid == 0) {
-            *qty += 1;
-            printf("Processo %d é filho de %d\n", getpid(), father);
-            create_process(limit, qty, getpid());
-        }
+    } else {  // Se for o pai tenta criar um outro filho        
+        create_process(limit, qty, getpid());
     }
     return;
 }
