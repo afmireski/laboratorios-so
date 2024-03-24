@@ -30,13 +30,17 @@ int main(int argc, char const *argv[])
 
 void create_process(int limit, int level, pid_t father) {
     if (level >= limit) return;
-    pid_t child = fork();
-    if (child == 0) {
+    pid_t left_child_pid = fork();
+    if (left_child_pid == 0) {
         printf("Processo %d é filho de %d\n", getpid(), father);
-        create_process(limit, level+1, getpid());
+        create_process(limit, level+1, getpid()); // Filho pode tentar ser pai
         exit(0); // Encerra o filho
     } else {  // Se for o pai tenta criar um outro filho        
-        create_process(limit, level, getpid());
+        pid_t right_child_pid = fork();
+        if (right_child_pid == 0) {
+            printf("Processo %d é filho de %d\n", getpid(), father);
+            create_process(limit, level+1, getpid()); // Filho pode tentar ser pai
+            exit(0); // Encerra o filho
     }
     return;
 }
