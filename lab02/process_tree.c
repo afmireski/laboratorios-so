@@ -5,6 +5,7 @@
 #include <sys/types.h> // pid_t
 #include <unistd.h> // fork, system
 #include <math.h> // pow
+#include <sys/wait.h> // wait
 
 void create_process(int limit, int level, pid_t father);
 
@@ -16,32 +17,35 @@ int main(int argc, char const *argv[])
         pid_t father_pid = getpid();
 
         create_process(n, tree_level, father_pid);
-        if (getpid() == father_pid) {
-            char command[20];
-            sprintf(command, "pstree %d -p -c", father_pid);
 
-            system(command);
-        }
+        char command[20];
+        sprintf(command, "pstree %d -p", father_pid);
+        system(command);
+
+        exit(0);
     }
-
-    exit(0);
     return 0;
 }
 
 void create_process(int limit, int level, pid_t father) {
-    if (level >= limit) return;
+    if (level >= limit) {
+        return;
+    };
     pid_t left_child_pid = fork();
     if (left_child_pid == 0) {
         printf("Processo %d é filho de %d\n", getpid(), father);
         create_process(limit, level+1, getpid()); // Filho pode tentar ser pai
-        exit(0); // Encerra o filho
     } else {  // Se for o pai tenta criar um outro filho        
         pid_t right_child_pid = fork();
         if (right_child_pid == 0) {
             printf("Processo %d é filho de %d\n", getpid(), father);
             create_process(limit, level+1, getpid()); // Filho pode tentar ser pai
-            exit(0); // Encerra o filho
         }
+    }
+
+    // Cada pai espera pelos filhos terminarem
+    for (int i = 0; i < 2; i++) {
+        wait(NULL);
     }
     return;
 }
