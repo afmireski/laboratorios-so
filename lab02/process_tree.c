@@ -41,6 +41,7 @@ void create_process(int limit, int level, pid_t father) {
             printf("Processo %d é filho de %d\n", getpid(), father);
             create_process(limit, level+1, getpid()); // Filho pode tentar ser pai
             exit(0); // Encerra o filho
+        }
     }
     return;
 }
