@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <stdbool.h>
 #include <sys/types.h> // pid_t
 #include <unistd.h> // fork, system
-#include <math.h> // pow
 #include <sys/wait.h> // wait
 
 void create_process(int limit, int level, pid_t father);
