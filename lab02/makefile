@@ -1,4 +1,4 @@
-CC = gcc
+CC = clang -Wall
 
 EX1 = process_tree
 
