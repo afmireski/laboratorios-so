@@ -1,7 +1,7 @@
 #include <stdio.h>        // printf()
 #include <stdlib.h>       // exit()
 #include <unistd.h>       // fork()
-#include <stdlib.h>        // rand()
+#include <stdlib.h>       // rand()
 #include <sys/types.h>    // pid_t
 #include <sys/wait.h>     // wait() 
 #include "distributed_search.h"
