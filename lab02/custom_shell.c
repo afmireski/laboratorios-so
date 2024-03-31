@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
+#include <string.h> // strcpy, strlen, strcmp, strtok
+#include <stdbool.h> // Suporte a true e false
 #include <sys/types.h> // pid_t
 #include <unistd.h> // fork, system
 #include <sys/wait.h> // wait

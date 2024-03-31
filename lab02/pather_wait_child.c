@@ -1,7 +1,13 @@
+/**
+ * Autor: Victor Angelo Souza Santos
+ * Data de entrega: 30/03/2024
+ * Última atualização: 30/04/2024
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/wait.h>
+#include <unistd.h> // fork
+#include <sys/wait.h> // wait
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {

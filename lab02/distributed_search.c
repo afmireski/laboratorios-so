@@ -1,3 +1,9 @@
+/**
+ * Autor: Alexandre Tolomeotti Enokida.
+ * Data: 29/03/2024.
+ * Última atualização: 30/04/2024.
+*/
+
 #include <stdio.h>        // printf()
 #include <stdlib.h>       // exit()
 #include <unistd.h>       // fork()
