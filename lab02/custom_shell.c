@@ -1,3 +1,9 @@
+/**
+ * Autor: André Felipe Mireski
+ * Data de entrega: 30/03/2024
+ * Última atualização: 30/04/2024
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> // strcpy, strlen, strcmp, strtok
