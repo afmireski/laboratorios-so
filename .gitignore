@@ -54,3 +54,5 @@ dkms.conf
 # Bins
 process_tree
 custom_shell
+pather_wait_child
+distributed_search
