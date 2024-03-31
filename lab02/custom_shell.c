@@ -7,14 +7,12 @@
 #include <sys/wait.h> // wait
 
 int main(){
-    
-
     char* exitCommand = "exit";
     int maxArgumentsCount = 10;
     
     while (1) {
         char input[200];
-        printf("------------------|SHELL|------------------\n");
+        printf("\n------------------|SHELL|------------------\n");
         printf("Informe o comando que deseja executar. Ex: 'ls -al'\n");
         printf("*'exit' para sair\n");
         printf("*Máximo de %d argumentos por comando\n", maxArgumentsCount);
@@ -76,7 +74,7 @@ int main(){
                 free(token);
             }
         }
-        printf("-------------------------------------------\n");
+        printf("\n-------------------------------------------\n");
     }
 
     exit(0);
