@@ -6,6 +6,8 @@ EX3 = distributed_search
 
 EX4 = custom_shell
 
+EX% = patherWaitChild
+
 PROGS=$(EX1) $(EX3) $(EX4)
 
 all: $(PROGS)
@@ -18,6 +20,9 @@ $(EX3):
 
 $(EX4):
 	$(CC) $(EX4).c -o $(EX4)
+
+$(EX4):
+	$(CC) $(EX5).c -o $(EX5)
 
 clean:
 	rm $(PROGS)
