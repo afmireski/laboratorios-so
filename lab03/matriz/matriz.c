@@ -55,3 +55,25 @@ int** read_matrix_from_file(char* filename, int *row, int *col) {
    *row = r; *col = c;
    return m;
 }
+
+/* grava uma matrix row x col em um arquivo */
+int write_matrix_to_file(char *filename, int **matrix, int row, int col) {
+   FILE *file = fopen(filename, "w"); // Abre o arquivo de saída
+
+   if (file == NULL) {
+      printf("Erro ao abrir o arquivo %s\n", filename);
+      return 1;
+   }
+
+   fprintf(file, "%dx%d\n", row, col);
+
+   for (int i = 0; i < row; i++) {
+      for (int j = 0; j < col; j++)
+         fprintf(file, "%d ", matrix[i][j]);
+      fprintf(file, "\n");
+   }
+
+   fclose(file);
+
+   return 0;
+}
