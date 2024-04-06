@@ -12,8 +12,8 @@
 #include <stdbool.h>    // bool
 #include "matriz.h"
 
-#define M 10
-#define N 10
+#define M 100
+#define N 200
 #define DEBUG false
 
 void test_passed(bool condition, char *success_message, char *failure_message);
