@@ -10,7 +10,7 @@
 #include <stdlib.h> // atoi
 #include <string.h>
 #include <stdbool.h> // bool
-#include<pthread.h> 
+#include <pthread.h> 
 #include "matriz.h"
 
 #define THREAD_COUNT 1
