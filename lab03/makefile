@@ -4,7 +4,7 @@ FLAGS = -lpthread.
 
 LIBS = matriz.o
 
-EX1 = x
+EX1 = exercicio1lab3
 
 EX2a = arithmetic_average
 
