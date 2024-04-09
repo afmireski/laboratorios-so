@@ -1,4 +1,4 @@
-CC = clang -Wall
+CC = Clang -Wall
 
 FLAGS = -lpthread.
 
@@ -8,9 +8,9 @@ EX1 = x
 
 EX2a = arithmetic_average
 
-EX2b = y
+EX2b = geometric_mean
 
-PROGS=$(EX2a)
+PROGS=$(EX2a) $(EX2b)
 
 all: $(PROGS)
 
@@ -21,7 +21,7 @@ $(EX2a):
 	$(CC) $(EX2a).c $(LIBS) -o $(EX2a)
 
 $(EX2b):
-	$(CC) $(EX2b).c $(LIBS) -o $(EX2b)
+	$(CC) $(EX2b).c $(LIBS) -o $(EX2b) -lm
 
 CFLAGS=-I.
 DEPS = matriz.h
