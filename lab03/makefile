@@ -1,4 +1,4 @@
-CC = Clang -Wall
+CC = clang -Wall
 
 FLAGS = -lpthread.
 
