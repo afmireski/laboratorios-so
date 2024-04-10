@@ -58,6 +58,7 @@ pather_wait_child
 distributed_search
 arithmetic_average
 test_matriz
+geometric_mean
 
 # I/O
 *.in
