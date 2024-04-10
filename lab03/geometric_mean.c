@@ -82,7 +82,7 @@ int main(int argc, char const *argv[])
         int **matrix = read_matrix_from_file(filename, &m, &n);
         if (matrix != NULL && (m > 0 || n > 0))
         {
-            float* media_geometrica_colunas = (float*)calloc(m, sizeof(float));
+            float* media_geometrica_colunas = (float*)calloc(n, sizeof(float));
 
             DataChunk **chunks = monta_chunks(m, n, matrix, media_geometrica_colunas);
 
