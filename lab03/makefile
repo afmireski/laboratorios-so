@@ -10,7 +10,7 @@ EX2a = arithmetic_average
 
 EX2b = geometric_mean
 
-PROGS=$(EX2a) $(EX2b)
+PROGS=$(EX1) $(EX2a) $(EX2b)
 
 all: $(PROGS)
 
