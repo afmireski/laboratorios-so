@@ -47,7 +47,7 @@ int main()
     strncpy(socket_address.sun_path, socket_path, sizeof(socket_address.sun_path) - 1);
     unlink(socket_path); // desvincular path
 
-    printf("Servidor de Tradução rodando....\n\n");
+    printf("Servidor de Tradução executando....\n\n");
 
     /* mapeia o socket para o socket_path */
     if (bind(server_socket, (struct sockaddr *)&socket_address, sizeof(socket_address)) == -1)
@@ -66,7 +66,6 @@ int main()
     while (1)
     {
         // Verifica se existe algum pedido de conexão
-        printf("Servidor - %d\n", getpid());
         if ((client_socket = accept(server_socket, NULL, NULL)) == -1)
         {
             perror("Erro ao realizar o accept do server");
@@ -79,7 +78,6 @@ int main()
         {
             while (1)
             {
-                printf("Filho - %d\n", getpid());
                 // Se é o filho então executa o protocolo de tradução
 
                 /* lê dados enviados pelos clientes */
@@ -97,10 +95,9 @@ int main()
                 char *translation_command = strtok(communication_buffer, ":");
                 char *word = strtok(NULL, ":"); // Obtém a palavra a ser traduzida.
 
-                printf("Comp -> %d\n", strncmp(translation_command, "no-no", 5));
                 if (strncmp(translation_command, "no-no", 5) == 0 || strlen(translation_command) == 0)
                 {
-                    printf("Conexão encerrada1\n");
+                    printf("Conexão encerrada\n");
                     // Fecha a conexão com o cliente.
                     close(client_socket);
                     // Encerra o processo filho
@@ -109,10 +106,8 @@ int main()
 
                 char *source_language = strtok(translation_command, "-"); // Obtém a língua de origem
                 char *destiny_language = strtok(NULL, "-");               // Obtém a língua de destino
-
-                printf("Tradução: %s -> %s\n", source_language, destiny_language);
-
                 char *source_dictionary[6];
+
                 if (strncmp(source_language, "pt", 2) == 0)
                 {
                     memcpy(source_dictionary, pt_dictionary, sizeof(pt_dictionary));
@@ -155,11 +150,8 @@ int main()
                 int i;
                 for (i = 0; i < 6; i++)
                 {
-                    printf("%s | %s\n", source_dictionary[i], word);
-                    printf("Comp -> %d\n", strncmp(source_dictionary[i], word, sizeof(source_dictionary[i])));
                     if (strncmp(source_dictionary[i], word, sizeof(source_dictionary[i])) == 0)
                     {
-                        printf("Correspondência encontrada\n");
                         break;
                     }
                 }
