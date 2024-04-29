@@ -63,3 +63,8 @@ geometric_mean
 # I/O
 *.in
 *.out
+
+# lab05
+*.socket
+ex04_client
+ex04_server

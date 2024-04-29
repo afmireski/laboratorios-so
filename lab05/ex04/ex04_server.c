@@ -12,7 +12,7 @@
  *
  * Autor: André Felipe Mireski
  * Data: 27/04/2024
- * Data de entrega: xx/05/2024
+ * Data de entrega: 05/05/2024
  */
 
 #include <stdio.h>
@@ -123,7 +123,7 @@ int main()
                 else
                 {
                     char* error_message = "Linguagem de origem inválida\n";
-                    send(client_socket, error_message, sizeof(error_message), 0); /* envia dados */
+                    send(client_socket, error_message, strlen(error_message), 0); /* envia dados */
                     continue;
                 }
 
@@ -143,21 +143,21 @@ int main()
                 else
                 {
                     char* error_message = "Linguagem de destino inválida\n";
-                    send(client_socket, error_message, sizeof(error_message), 0); /* envia dados */
+                    send(client_socket, error_message, strlen(error_message), 0); /* envia dados */
                     continue;
                 }
 
                 int i;
                 for (i = 0; i < 6; i++)
                 {
-                    if (strncmp(source_dictionary[i], word, sizeof(source_dictionary[i])) == 0)
+                    if (strncmp(source_dictionary[i], word, strlen(source_dictionary[i])) == 0)
                     {
                         break;
                     }
                 }
 
                 char translation_buffer[100];
-                if (i == 6)
+                if (i == 5)
                 {
                     char* error_message = "Impossível realizar a tradução\n";
                     strcpy(translation_buffer, error_message);
