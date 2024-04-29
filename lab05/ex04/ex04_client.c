@@ -12,7 +12,7 @@
  *
  * Autor: André Felipe Mireski
  * Data: 27/04/2024
- * Data de entrega: xx/05/2024
+ * Data de entrega: 05/05/2024
  */
 
 #include <stdio.h>
