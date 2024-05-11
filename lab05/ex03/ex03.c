@@ -236,6 +236,12 @@ int main(int argc, char const **argv)
                 #endif
 
                 writef(OUTPUT_RESULT_FNAME, (int*) dptr, NUM_ELEM);
+
+                if (shm_unlink(DSHM_NAME) == -1) {
+                        printf("Error removing %s\n", SSHM_NAME);
+                        exit(-1);
+                }
+
                 if (shm_unlink(SSHM_NAME) == -1) {
                         printf("Error removing %s\n", SSHM_NAME);
                         exit(-1);
