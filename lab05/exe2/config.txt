@@ -1,1 +1,1 @@
-/home/victor/Documentos/Sistemas operacionais victor
+-home/alunos/a2021064/Documentos/GitHub/laboratorios-so/lab05
