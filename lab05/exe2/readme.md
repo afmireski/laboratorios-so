@@ -53,8 +53,8 @@ Execute o programa:
 
 #Ao receber o sinal SIGINT (Ctrl+C), o programa iniciará uma contagem regressiva de 10 segundos. Após esse tempo, ele será encerrado automaticamente.
 
-Limpeza
-Para remover os executáveis gerados pela compilação, execute:
+#Limpeza
+#Para remover os executáveis gerados pela compilação, execute:
 
 make clean
 #Isso removerá os arquivos binários exercicioA, exercicioB, exercicioC e todos os arquivos objeto (*.o).

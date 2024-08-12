@@ -14,11 +14,11 @@ make
 # Se precisar recompilar:
 make clean
 
-# Execute o lerstringpipe.c
-make lerstringpipe
+# Execute o enviar_string.c
+make enviar_string
 
-# Execute o exibe_info.c
-make exibe_info # execute-o em outro terminal
+# Execute o recebe_info.c
+make recebe_info # execute-o em outro terminal
 
 ```
 Uso
